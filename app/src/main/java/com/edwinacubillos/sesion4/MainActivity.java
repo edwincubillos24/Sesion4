@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +15,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final EditText Nombre = (EditText) findViewById(R.id.eNombre);
+        Button Cargar = (Button) findViewById(R.id.bCargar);
+        final TextView TNombre = (TextView) findViewById(R.id.tNombre);
+
+        Cargar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String name;
+                //name = Nombre.getText().toString();
+                double numero;
+                numero = Double.parseDouble(Nombre.getText().toString());
+                numero = numero *10;
+                TNombre.setText(String.valueOf(numero));
+            }
+        });
+
+
     }
 
     @Override
